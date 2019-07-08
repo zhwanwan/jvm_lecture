@@ -1,5 +1,7 @@
 package com.lec.jvm.classloader;
 
+import java.util.Random;
+
 /**
  * @author zhwanwan
  * @create 2019-07-08 9:38 PM
@@ -12,7 +14,7 @@ public class MyTest8 {
 }
 
 class FinalTest {
-    public static final int x = 3;
+    public static final int x = new Random().nextInt(3);
     static {
         System.out.println("FinalTest static block");
     }
