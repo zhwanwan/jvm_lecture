@@ -17,6 +17,9 @@ dependencies {
     testCompile (
             "junit:junit:4.12"
     )
+    compile (
+            "mysql:mysql-connector-java:5.1.47"
+    )
 
 }
 tasks.withType(JavaCompile) {

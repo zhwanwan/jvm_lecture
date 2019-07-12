@@ -27,6 +27,10 @@ public class MyTest16 extends ClassLoader {
         this.classLoaderName = classLoaderName;
     }
 
+    public MyTest16(ClassLoader parent) {
+        super(parent);
+    }
+
     @Override
     public String toString() {
         return "MyTest16{" +
