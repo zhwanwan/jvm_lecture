@@ -1,7 +1,8 @@
 package com.lec.jvm.bytecode;
 
 /**
- *
+ * javap -p -verbose MyTest2
+ * -p:显示private方法
  */
 public class MyTest2 {
     String str = "welcome";
@@ -19,6 +20,17 @@ public class MyTest2 {
         System.out.println(i);
     }
 
+    /**
+     *   private static synchronized void test2();
+     *     descriptor: ()V
+     *     flags: ACC_PRIVATE, ACC_STATIC, ACC_SYNCHRONIZED
+     *     Code:
+     *       stack=0, locals=0, args_size=0
+     *          0: return
+     *       LineNumberTable:
+     *         line 89: 0
+     * @param x
+     */
     private synchronized void setX(int x) {
         this.x = x;
     }
@@ -91,4 +103,5 @@ public class MyTest2 {
     static {
         System.out.println("test");
     }
+
 }

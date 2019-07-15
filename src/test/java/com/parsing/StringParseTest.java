@@ -22,13 +22,21 @@ public class StringParseTest {
         while (st.hasMoreTokens()) {
             System.out.println(st.nextToken());
         }*/
-        System.out.println(MAXIMUM_CAPACITY);
+        /*System.out.println(MAXIMUM_CAPACITY);
         //System.out.println(tableSizeFor(16));
         int n = 15;
         n |= n >>> 1;
         System.out.println(n);
         System.out.println(15 | 7);
-//        System.out.println(15>>>2);
+        System.out.println(15>>>2);*/
+
+        Integer x = 3;
+        Integer y = 3;
+        System.out.println(x == y);// true
+        Integer a = new Integer(3);
+        Integer b = new Integer(3);
+        System.out.println(a == b);//false
+        System.out.println(a.equals(b));//true
 
 
     }
