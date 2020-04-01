@@ -1,8 +1,7 @@
 package com.lec.jvm.classloader;
 
 /**
- * @author zhwanwan
- * @create 2019-07-08 9:23 PM
+ * 类加载器
  */
 public class MyTest7 {
 
@@ -11,14 +10,14 @@ public class MyTest7 {
         Class<?> clazz = Class.forName("java.lang.String");
         System.out.println(clazz.getClassLoader());
 
-        Class<?> clazz2 = Class.forName("com.lec.jvm.classloader.C");
+        Class<?> clazz2 = Class.forName("com.lec.jvm.classloader.MT7");
         System.out.println(clazz2.getClassLoader());
 
     }
 
 }
 
-class C {
+class MT7 {
 
 }
 

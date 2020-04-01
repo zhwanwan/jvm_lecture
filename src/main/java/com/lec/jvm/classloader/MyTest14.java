@@ -21,5 +21,10 @@ public class MyTest14 {
         System.out.println("-----------------------------");
         Class<?> clazz = MyTest14.class;
         System.out.println(clazz.getClassLoader());
+        /*ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
+        System.out.println(contextClassLoader);
+        ClassLoader systemClassLoader = ClassLoader.getSystemClassLoader();
+        System.out.println(systemClassLoader);*/
+
     }
 }

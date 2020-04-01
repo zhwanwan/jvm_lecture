@@ -1,8 +1,7 @@
 package com.lec.jvm.classloader;
 
 /**
- * @author zhwanwan
- * @create 2019-07-09 8:23 AM
+ * 双亲委托
  */
 public class MyTest13 {
     public static void main(String[] args) {

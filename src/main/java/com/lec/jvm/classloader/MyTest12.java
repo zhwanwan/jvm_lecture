@@ -2,7 +2,7 @@ package com.lec.jvm.classloader;
 
 /**
  * 反射（如Class.forName("com.test.Test"))--主动使用
- * 调用ClassLoad.load()方法加载一个类，并不是对一个类的主动使用，不会导致类的初始化
+ * 调用ClassLoader.load()方法加载一个类，并不是对一个类的主动使用，不会导致类的初始化
  *
  * Output:
  * class com.lec.jvm.classloader.CL
@@ -21,7 +21,7 @@ public class MyTest12 {
 
         System.out.println("---------------------");
 
-        clazz = Class.forName("com.lec.jvm.classloader.CL");
+        clazz = Class.forName("com.lec.jvm.classloader.CL"); //反射--主动使用
         System.out.println(clazz);
     }
 }

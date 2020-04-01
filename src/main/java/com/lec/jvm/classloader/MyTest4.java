@@ -33,6 +33,9 @@ public class MyTest4 {
         char[] chars = new char[1];
         System.out.println(chars.getClass());
 
+        boolean[] booleans = new boolean[1];
+        System.out.println(booleans.getClass());
+
         short[] shorts = new short[1];
         System.out.println(shorts.getClass());
 

@@ -7,13 +7,22 @@ package com.lec.jvm.classloader;
 public class MyTest5 {
     public static void main(String[] args) {
 
-        System.out.println(MyChild5.b);
+        //System.out.println(MyChild5.b);
         //new C();
+        System.out.println(MyParent5_1.thread);
 
     }
 }
 
-interface MyParent5 {
+class MyGrandpa {
+    public static Thread thread = new Thread() {
+        {
+            System.out.println("MyGrandpa invoked");
+        }
+    };
+}
+
+class MyParent5 extends MyGrandpa {
     //    int a = new Random().nextInt(3);
     public static Thread thread = new Thread() {
         {
@@ -39,14 +48,13 @@ interface MyParent5 {
  * 这种情况下，不会加载MyParent5和MyChild5，因为接口里，b其实是public static final的常量，直接存入MyTest5的常量池里
  * [Loaded com.lec.jvm.classloader.MyTest5 from file:/E:/2019/jvm_lecture/out/production/classes/]
  */
-interface MyChild5 extends MyParent5 {
-    int b = 5;
+class MyChild5 extends MyParent5 {
+    public static final int b = 5;
 }
 
 /**
- * 先执行代码块，再执行构造方法
+ * 先执行代码块--顺序执行，再执行构造方法
  */
-/*
 class C {
 
     public C() {
@@ -54,6 +62,26 @@ class C {
     }
 
     {
-        System.out.println("Hello");
+        System.out.println("Hello1");
     }
-}*/
+
+    {
+        System.out.println("Hello2");
+    }
+}
+
+interface MyGrandpa5_1 {
+    public static Thread thread = new Thread() {
+        {
+            System.out.println("MyGrandpa5_1 invoked");
+        }
+    };
+}
+
+interface MyParent5_1 extends MyGrandpa5_1 {
+    public static Thread thread = new Thread() {
+        {
+            System.out.println("MyParent5_1 invoked");
+        }
+    };
+}

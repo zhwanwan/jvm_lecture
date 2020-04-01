@@ -1,8 +1,12 @@
 package com.lec.jvm.classloader;
 
 /**
- * @author zhwanwan
- * @create 2019-07-08 10:04 PM
+ * 类的继承关系
+ * ------------------------------
+ * MyTest9 static block
+ * Parent static block
+ * Child static block
+ * 4
  */
 public class MyTest9 {
     static {

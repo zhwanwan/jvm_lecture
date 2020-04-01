@@ -1,6 +1,8 @@
 package com.lec.jvm.classloader;
 
 /**
+ * 主动使用情况
+ * 仅仅声明一个类的引用，不是主动使用
  */
 public class MyTest10 {
 
@@ -9,7 +11,7 @@ public class MyTest10 {
     }
 
     public static void main(String[] args) {
-        Parent2 parent2;
+        Parent2 parent2; //不会导致parent2主动使用
         System.out.println("------------------");
         parent2 = new Parent2();
         System.out.println("------------------");
@@ -28,7 +30,7 @@ class Parent2 {
     }
 }
 
-class Child2 {
+class Child2 extends Parent2 {
     static int b = 4;
 
     static {

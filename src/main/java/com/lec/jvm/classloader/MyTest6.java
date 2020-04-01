@@ -1,7 +1,7 @@
 package com.lec.jvm.classloader;
 
 /**
- *
+ * 先去准备阶段，准备阶段赋默认值，准备完成后就可以初始化--从上向下初始化
  */
 public class MyTest6 {
 
@@ -21,7 +21,7 @@ class Singleton {
 
     private Singleton() {
         counter1++;
-        counter2++;
+        counter2++; //准备阶段
         System.out.println("inner counter1: " + Singleton.counter1);
         System.out.println("inner counter2: " + Singleton.counter2);
     }
