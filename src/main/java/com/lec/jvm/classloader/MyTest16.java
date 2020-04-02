@@ -1,6 +1,10 @@
 package com.lec.jvm.classloader;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * 自定义类加载器-->继承ClassLoader
@@ -9,7 +13,7 @@ public class MyTest16 extends ClassLoader {
 
     //自定义类加载器的名字
     private String classLoaderName;
-    private final String fileExtension = ".class";
+    private String fileExtension = ".class";
 
     private String path;
 
@@ -18,24 +22,17 @@ public class MyTest16 extends ClassLoader {
     }
 
     public MyTest16(String classLoaderName) {
-        super();
+        super(); //将系统类加载器当做该类加载器的父加载器
         this.classLoaderName = classLoaderName;
     }
 
     public MyTest16(ClassLoader parent, String classLoaderName) {
-        super(parent);
+        super(parent); //显示指定该类加载器的父类加载器
         this.classLoaderName = classLoaderName;
     }
 
     public MyTest16(ClassLoader parent) {
         super(parent);
-    }
-
-    @Override
-    public String toString() {
-        return "MyTest16{" +
-                "classLoaderName='" + classLoaderName + '\'' +
-                '}';
     }
 
     @Override
@@ -46,6 +43,7 @@ public class MyTest16 extends ClassLoader {
         return defineClass(className, b, 0, b.length);
     }
 
+    //className --> binary name
     private byte[] loadClassData(String className) {
         InputStream is = null;
         byte[] data = null;
@@ -87,6 +85,7 @@ public class MyTest16 extends ClassLoader {
 
     public static void main(String[] args) throws Exception {
         MyTest16 loader1 = new MyTest16("loader1");
+        //test(loader1);
 //        loader1.setPath("E:\\2019\\jvm_lecture\\out\\production\\classes\\");
         loader1.setPath("C:\\Users\\zhwanwan\\Desktop\\");
         Class<?> clazz = loader1.loadClass("com.lec.jvm.classloader.MyTest1");
@@ -96,20 +95,25 @@ public class MyTest16 extends ClassLoader {
         System.out.println("------------------------------------");
 
         /**
-         * 测试类的卸载
+         * 模拟类的卸载
+         * 使用-XX:TraceClassUnloading
          */
-        /*loader1 = null;
+        loader1 = null;
         clazz = null;
         object = null;
 
         System.gc();
 
+        Thread.sleep(2000);
+
         loader1 = new MyTest16("loader1");
         loader1.setPath("C:\\Users\\zhwanwan\\Desktop\\");
         clazz = loader1.loadClass("com.lec.jvm.classloader.MyTest1");
-        System.out.println("class: " + clazz.hashCode());*/
+        System.out.println("class: " + clazz.hashCode());
+        object = clazz.newInstance();
+        System.out.println(object);
 
-        MyTest16 loader2 = new MyTest16(loader1, "loader2");
+        /*MyTest16 loader2 = new MyTest16(loader1, "loader2");
         loader2.setPath("C:\\Users\\zhwanwan\\Desktop\\");
         Class<?> clazz2 = loader2.loadClass("com.lec.jvm.classloader.MyTest1");
         System.out.println("class: " + clazz2.hashCode());
@@ -121,7 +125,7 @@ public class MyTest16 extends ClassLoader {
         Class<?> clazz3 = loader3.loadClass("com.lec.jvm.classloader.MyTest1");
         System.out.println("class: " + clazz3.hashCode());
         Object object3 = clazz3.newInstance();
-        System.out.println(object3);
+        System.out.println(object3);*/
 
     }
 
