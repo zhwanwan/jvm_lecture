@@ -1,4 +1,4 @@
-package com.lec.jvm.bytecode;
+package com.lec.jvm.bytecode.dynamicproxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
@@ -12,14 +12,12 @@ public class Client {
 
         //设置属性来生成动态代理类--com.sun.proxy.$Proxy0.class
         //ProxyGenerator-->saveGeneratedFiles
-        System.getProperties().setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+        //System.getProperties().setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
 
         Subject rs = new RelSubject();
-
         InvocationHandler ds = new DynamicSubject(rs);
-
         Class<?> cls = rs.getClass();
-
+        //创建动态代理类
         Subject subject = (Subject) Proxy.newProxyInstance(cls.getClassLoader(), cls.getInterfaces(), ds);
 
         System.out.println(subject.getClass()); //class com.sun.proxy.$Proxy0

@@ -1,8 +1,7 @@
-package com.lec.jvm.bytecode;
+package com.lec.jvm.bytecode.dynamicproxy;
 
 /**
- * @author zhwanwan
- * @create 2019-07-15 7:00 PM
+ * 实际目标对象
  */
 public class RelSubject implements Subject {
 

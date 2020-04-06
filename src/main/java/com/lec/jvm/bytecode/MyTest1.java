@@ -125,6 +125,7 @@ package com.lec.jvm.bytecode;
  */
 public class MyTest1 {
 
+    //通过查看字节码，这里的赋值其实是在构造方法完成的
     private int a = 1;
 
     public int getA() {

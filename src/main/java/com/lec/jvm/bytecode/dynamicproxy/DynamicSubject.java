@@ -1,4 +1,4 @@
-package com.lec.jvm.bytecode;
+package com.lec.jvm.bytecode.dynamicproxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

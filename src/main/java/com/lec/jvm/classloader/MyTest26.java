@@ -26,13 +26,15 @@ public class MyTest26 {
 
     public static void main(String[] args) {
 
+        //设置当前线程类加载器为扩展类加载器
         //Thread.currentThread().setContextClassLoader(MyTest26.class.getClassLoader().getParent());
 
         ServiceLoader<Driver> loader = ServiceLoader.load(Driver.class);
         Iterator<Driver> iterator = loader.iterator();
         while (iterator.hasNext()) {
             Driver driver = iterator.next();
-            System.out.println("driver: " + driver.getClass() + ", loader: " + driver.getClass().getClassLoader());
+            System.out.println("driver: " + driver.getClass() +
+                    ", loader: " + driver.getClass().getClassLoader());
         }
         //默认Launcher$AppClassLoader
         System.out.println("当前线程上下文加载器：" + Thread.currentThread().getContextClassLoader());
