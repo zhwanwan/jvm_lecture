@@ -18,7 +18,8 @@ dependencies {
             "junit:junit:4.12"
     )
     compile (
-            "mysql:mysql-connector-java:5.1.47"
+            "mysql:mysql-connector-java:5.1.47",
+            "cglib:cglib:3.2.8"
     )
 
 }
